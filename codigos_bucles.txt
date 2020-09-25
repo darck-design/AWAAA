@@ -1,0 +1,20 @@
+// codigo para ciclo for
+
+{ "class": "GraphLinksModel",
+  "linkFromPortIdProperty": "frompid",
+  "linkToPortIdProperty": "topid",
+  "nodeDataArray": [ 
+{"category":"Calcular", "text":"i=0", "key":-3, "loc":"37.589126586914034 19.999999999999986"},
+{"category":"Condicion", "text":"i<n", "key":-5, "loc":"37.58912658691406 142.21759262084967"},
+{"category":"Calcular", "text":"Calcular", "key":-4, "loc":"37.58912658691405 264.435185241699"},
+{"category":"Calcular", "text":"i=i+1", "key":-6, "loc":"37.58912658691426 349.43518524169923"}
+ ],
+  "linkDataArray": [ 
+{"from":-3, "to":-5, "frompid":"OUT", "topid":"name"},
+{"from":-5, "to":-4, "frompid":"OUT2", "topid":"name"},
+{"from":-4, "to":-6, "frompid":"OUT", "topid":"name"},
+{"from":-6, "to":-5, "frompid":"OUT", "topid":"name"}
+ ]}
+ 
+ carlosricardodarckynkdesign12345
+ darckynkdesign12345

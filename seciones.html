@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AWAAA</title>
+
+  <!-- CSS  -->
+  <link href="css/fonts.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/materialize.css" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen,projection">
+
+  <script type="text/javascript" src="js/release/go.js"></script>
+  <script type="text/javascript" src="js/release/figures.js"></script>
+  <script type="text/javascript" src="js/propiedades_df_2.js"></script>
+
+  <script src="saveData.js"></script>
+
+</head>
+<body onload="init()">
+  <!-- MENU OPCIONES -->
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="index.html" class="brand-logo">AWAAA</a>
+      <!-- menu normal -->
+      <ul class="right hide-on-med-and-down">
+        <li><a href="javascript:document.location.reload();">Nuevo<i class="material-icons right">add</i></a></li>
+        <li><a href="#">Abrir<i class="material-icons right">input</i></a></li>
+        <li><a href="#" onclick="down()">Guardar<i class="material-icons right">save</i></a></li>
+        <li><a href="#">Acerca de<i class="material-icons right">info</i></a></li>
+        <li><a href="#">Salir<i class="material-icons right">close</i></a></li>
+      </ul>
+      <!-- Menu responsivo -->
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="javascript:document.location.reload();">Nuevo<i class="material-icons right">add</i></a></li>
+        <li><a href="#">Abrir<i class="material-icons right">input</i></a></li>
+        <li><a href="#" onclick="down()">Guardar<i class="material-icons right">save</i></a></li>
+        <li><a href="#">Acerca de<i class="material-icons right">info</i></a></li>
+        <li><a href="#">Salir<i class="material-icons right">close</i></a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+    <div class="container" id="contenido">
+      <br>
+      <div class="section">
+
+        <!-- MENU SECCIONES -->
+        <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+          <li class="tab"><a class="active" href="#analizar">Analizar</a></li>
+          <li class="tab"><a href="#planear">Planear</a></li>
+          <li class="tab"><a href="#disenar">Diseñar</a></li>
+          <li class="tab"><a href="#probar">Probar</a></li>
+        </ul> 
+
+        <!-- ETAPA ANALIZAR -->
+        <div id="analizar" class="col s12">
+          <div class="row"></div>
+
+          <div class="row secciones">
+            <form class="col s12">
+              <div class="row">
+                <div class="col s12">
+                  <h5>Escribe el enunciado inicial</h5>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="enun_inicial" class="materialize-textarea" data-length="512"></textarea>
+                  <label for="textarea" class="active">Escriba aquí el enunciado incial del problema</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="row secciones">
+            <form class="col s12">
+              <div class="row">
+                <!-- se muestra la pregunta en pantalla -->
+                <div class="col s12">
+                  <h5 id="pregunta"></h5>
+                </div>
+                <!-- se muestra un area texto para la respuesta de la pregunta en pantalla -->
+                <div id="res" class="input-field col s12">
+                  
+                </div>
+                <!-- paginacion para cambiar de pregunta -->
+                <div class="col s12">
+                  <ul class="pagination">
+                    <li class=" waves-effect"><a href="#" onclick="anterior()"><i class="material-icons">chevron_left</i></a></li>
+                    <li id="pp0" class=" waves-effect"><a href="#p1">1</a></li>
+                    <li id="pp1" class=" waves-effect"><a href="#p2">2</a></li>
+                    <li id="pp2" class=" waves-effect"><a href="#p3">3</a></li>
+                    <li id="pp3" class=" waves-effect"><a href="#p4">4</a></li>
+                    <li id="pp4" class=" waves-effect"><a href="#p5">5</a></li>
+                    <li id="pp5" class=" waves-effect"><a href="#p6">6</a></li>
+                    <li id="pp6" class=" waves-effect"><a href="#p7">7</a></li>
+                    <li id="pp7" class=" waves-effect"><a href="#p8">8</a></li>
+                    <li class=" waves-effect"><a href="#" onclick="siguiente()"><i class="material-icons">chevron_right</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="row secciones">
+            <form class="col s12">
+              <div class="row">
+                <div class="col s12">
+                  <h5>Considere las respuestas anteriores y escriba el enunciado final del problema</h5>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="enun_final" class="materialize-textarea" data-length="512"></textarea>
+                  <label for="enun_final">Considere las respuestas anteriores y escriba el enunciado final del problema</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- ETAPA PLANEAR -->
+        <div id="planear" class="col s12">
+          <p>Lista de elementos</p>
+          <div class="col s12 divtable">
+            <table id="tabla_lemen" class="highlight centered">
+              <thead>
+                <tr>
+                    <th>Nombre del Elemento</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Auxiliar</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+          <br/>
+          <div class="col s12">
+            <a class="waves-effect waves-light btn-small" href="#" onclick="add()"><i class="material-icons right">add</i>Agregar</a>
+            <a class="waves-effect waves-light btn-small" href="#" onclick="rem()"><i class="material-icons right">remove</i>Remover</a>
+            <a class="waves-effect waves-light btn-small modal-trigger" href="#modal_ayuda"><i class="material-icons right">info</i>Ayuda</a>
+            <!-- Modal Structure -->
+            <div id="modal_ayuda" class="modal">
+              <div class="modal-content" style="text-align: justify-all;">
+                <h4>Ayuda para la pestaña Planear</h4>
+                <p>El objetivo principal de ésta pestaña, es identificar si existen elementos (variables) necesarios para el diseño de la solución y si existen,asignarle las propiedades correspondientes que se definen a continuación.<br/>Se compone de dos listas principales:</p>
+                <p>Lista de elementos: 
+                  <ol>
+                    <li>Nombre del Elemento: Describe de manera concisa, el uso del elemento en el diseño de la solución.</li>
+                    <li>Rol Entrada: Si el valor del elemento será  solicitado al usuario cuando se ejecute la corrida de escritorio (etapa Probar).</li>
+                    <li>Rol Salida: Si será necesario que el valor del elemento se muestre en pantalla cuando se ejecute al corrida de escritorio (etapa Probar).</li>
+                    <li>Rol Auxiliar: Si el elemento será utilizado como valor temporal en cálculos intermedios y no es necesario solicitarlo o mostrarlo durante la corrida de escritorio (etapa Probar).</li>
+                  </ol>
+                </p>
+                <p>Lista de asignación de identificadores:
+                  <ol>
+                    <li>Elemento: Este campo de la lista duplica la información del nombre del elemento de la lista anterior.</li>
+                    <li>Tipo de dato: Es el tipo de dato ya sea Entero, Real o Cadena, que tendrá la variable.</li>
+                    <li>Identificador: Son los caracteres y dígitos con los que se identificarán en el diagrama de flujo a las variables.</li>
+                    <li>Tipo de identificador: Define si el valor del elemento será de tipo variable o constante.</li>
+                    <li>Valor inicial: Es el valor con el que se inicializa el elemento (variable o constante).</li>
+                  </ol>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <p>Lista de asignación de identificadores</p>
+          <div class="col s12 divtable">
+            <table id="tabla_asigid" class="highlight centered">
+              <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Tipo de dato</th>
+                    <th>Identificador</th>
+                    <th>Tipo de identificador</th>
+                    <th>Valor inicial</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- ETAPA DISEÑAR -->
+        <div id="disenar" class="col s12" >
+          <div class="row">
+            <!-- seccion del menu de opciones -->
+            <div class="col s12">
+              <nav>
+                  <div class="nav-wrapper">
+                    <ul>
+                      <li class="tab"><a class="tooltipped" data-position="top" data-tooltip="ctrl+c para copiar" href="#">Copiar</a></li>
+                      <li class="tab"><a class="tooltipped" data-position="top" data-tooltip="ctrl+x para cortar" href="#">Cortar</a></li>
+                      <li class="tab"><a class="tooltipped" data-position="top" data-tooltip="ctrl+v para pegar" href="#">Pegar</a></li>
+                      <li class="tab"><a href="#">Ayuda</a></li>
+                      <li class="tab"><a href="#">Exportar</a></li>
+                    </ul> 
+                  </div>
+              </nav>
+            </div>
+
+            <div class="col s12"> 
+              <br>
+            </div>
+
+            <div class="col s12"> 
+              
+              <!--********************* Canvas **************-->
+              <div id="sample">
+                <div style="width: 100%; display: flex; justify-content: space-between">
+                  <div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black"></div>
+                  <div id="myDiagramDiv" style="flex-grow: 1; height: 750px; border: solid 1px black"></div>
+                </div>
+                <button id="SaveButton" onclick="save()">Guardar cambios del diagrama</button>
+                <button onclick="load()">Cargar diagrama</button><br>
+                Diagrama guardado en formato JSON:
+                <textarea id="mySavedModel" style="width:100%;height:300px">
+                  { "class": "go.GraphLinksModel",
+                    "linkFromPortIdProperty": "frompid",
+                    "linkToPortIdProperty": "topid",
+                    "nodeDataArray": [ 
+                  {"category":"Start", "text":"Inicio", "key":-1},
+                  {"category":"Calcular", "text":"Inicializar Variables", "key":-3},
+                  {"category":"End", "text":"Fin", "key":-6}
+                  ],
+                    "linkDataArray": [ 
+                  {"from":-1, "to":-3, "frompid":"OUT", "topid":"IN"},
+                  {"from":-3, "to":-6, "frompid":"OUT", "topid":"T"}
+                  ]}
+                </textarea>
+                <button onclick="printDiagram()">Print Diagram Using SVG</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="probar" class="col s12"><p>Test 4</p></div>
+      </div>
+    </div>
+
+  <footer class="page-footer white">
+    <div class="footer-copyright">
+      <div class="container">
+        <span class="black-text text-lighten-4">Copyright © Darck Design - Carlos Ricardo Cortés Jarquín 2019</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- *************************  Scripts ****************************************************-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script src="js/filesaver.js" type="text/javascript"></script>
+  <script src="js/html2canvas.js" type="text/javascript"></script>  
+  
+   <!------------------------------ Etapa analizar  ------------------------>
+  <!-- codigo para el funcionamiento de la seccion de las 8 preguntas -->
+  <script src="etapa_analizar.js"></script>
+
+   <!-- ************************** Etapa planear ****************************** -->
+  <!-- Codigo para los botones agregar, remover -->
+  <script src="etapa_planear.js"></script>
+  
+   <!-- ************************** Etapa Diseñar ****************************** -->
+  <!--script src="etapa_disenar.js"></script-->
+  
+  <!-- *************************** funciones para elementos de la pagina ************************************ -->
+  <script type="text/javascript">
+    //activa la funcionalidad de las pestañas de las etapas
+    $(document).ready(function(){
+      $('.tabs').tabs();
+    });
+    //activa la funcionalidad de los menu select (tipo de dato, tipo de identificador, checkbox)
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+    //activa la funcionalidad para abrir ventanas modales
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+
+    $(document).ready(function(){
+      $('.collapsible').collapsible();
+    });
+
+    $(document).ready(function () 
+    {  
+      $("textarea, input, select").change(function () {   
+        modified = true;  
+      }); 
+    }); 
+    /*$(document).ready(function(){
+      var height = $(window).height() - 134; // 134 la suma del ancho del menu mas la suma del ancho del footer
+      $('#contenido').height(height);
+    });*/
+
+    //activa el contador de caracteres en una caja de texto
+    $(document).ready(function() {
+      $('#enun_final, #enun_inicial').characterCounter();
+    });
+	
+	$(document).ready(function(){
+		$('.tooltipped').tooltip();
+	  });
+
+    /*function validarCampos() {
+      if (modified)  
+        return confirm('Puede haber cambios sin guardar en el formulario, ¿Desea salir de todas formas?'); 
+    }*/
+  </script>
+
+  <script language="JavaScript">
+    window.onbeforeunload = confirmExit;
+    function confirmExit()
+    {
+      return "¿Estas seguro de salir?";
+    }
+  </script>
+  
+  <!-- ************************************* codigo etapa de diseñar *********************************** -->
+  <script>
+    function guardari(){
+      /* cuando el elmento es un canvas se guarda directamente */
+      /*var canvas = document.getElementById("canvas");
+      var imagen = canvas.toDataURL("image/png");
+      this.href = imagen;*/
+
+      /* cuando el elemento es un div se convierte en canva para guardarlo */
+      html2canvas($("#myDiagramDiv"), {
+        onrendered: function(canvas) {
+            theCanvas = canvas;
+            document.body.appendChild(canvas);
+
+            canvas.toBlob(function(blob) {
+              saveAs(blob, "df_gojs.png"); 
+            });
+        }
+      });
+    }
+  </script>
+
+  </body>
+</html>
