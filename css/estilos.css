@@ -1,0 +1,14 @@
+.secciones{
+	border-top: 6px solid red;
+}
+
+.divtable {
+    overflow:auto;
+    height:200px;
+}
+
+.lema{
+	background-color: rgba(0,0,0,0.8);
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
